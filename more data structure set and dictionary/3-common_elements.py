@@ -3,10 +3,10 @@
 # function that returns a set of common elements in two sets
 
 def common_elements(set_1, set_2):
-    new_set = set()
-    for element in set_1:
-        if element in set_2:
-            new_set.add(element)
+    new_set = set_1.intersection(set_2)
+    # for element in set_1:
+    #     if element in set_2:
+    #         new_set.add(element)
     return new_set
 
 
