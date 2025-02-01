@@ -7,7 +7,7 @@ def square_matrix_map(matrix=[]):
     return new_matrix
 
 
-# Input
+# Input Data
 matrix = [
     [1, 2, 3],
     [4, 5, 6],
