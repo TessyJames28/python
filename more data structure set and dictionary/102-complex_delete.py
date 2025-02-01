@@ -11,7 +11,7 @@ def complex_delete(a_dictionary, value):
     return a_dictionary
 
 
-# Input
+# Input Data
 print_sorted_dictionary = \
     __import__('6-print_sorted_dictionary').print_sorted_dictionary
 
