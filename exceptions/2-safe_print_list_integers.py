@@ -14,7 +14,7 @@ def safe_print_list_integers(my_list=[], x=0):
     return count
     
 
-# Input
+# Input Data
 my_list = [1, 2, 3, 4, 5]
 
 nb_print = safe_print_list_integers(my_list, 2)
