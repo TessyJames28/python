@@ -11,7 +11,7 @@ def safe_print_integer(value):
         return False
     
 
-# Input
+# Input Data
 value = 89
 has_been_print = safe_print_integer(value)
 if not has_been_print:
