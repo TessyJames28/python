@@ -13,7 +13,7 @@ def safe_print_division(a, b):
     return result
 
 
-# Input
+# Input Data
 a = 12
 b = 2
 result = safe_print_division(a, b)
