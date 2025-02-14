@@ -37,3 +37,37 @@ class Node():
         
 
 
+# And, write a class SinglyLinkedList that defines a singly linked list by:
+class SinglyLinkedList():
+    def __init__(self):
+        self.__head = None
+    
+    
+    def sorted_insert(self, value):
+        new_node = Node(value)
+        if self.__head is None and self.__head.data > new_node.data:
+            new_node.next_node = self.__head
+            self.__head = new_node
+        else:
+            current = self.__head
+            while current.next_node is not None and current.next_node.data < new_node.data:
+                current = current.next_node
+                new_node.next_node = current.next_node
+                current.next_node = new_node
+
+
+# Input Data
+sll = SinglyLinkedList()
+sll.sorted_insert(2)
+sll.sorted_insert(5)
+sll.sorted_insert(3)
+sll.sorted_insert(10)
+sll.sorted_insert(1)
+sll.sorted_insert(-4)
+sll.sorted_insert(-3)
+sll.sorted_insert(4)
+sll.sorted_insert(5)
+sll.sorted_insert(12)
+sll.sorted_insert(3)
+print(sll)
+        
