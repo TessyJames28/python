@@ -43,7 +43,7 @@ class Rectangle():
             self.__height = value
 
 
-# Input Data
+# Input Data for tesing
 my_rectangle = Rectangle(2, 4)
 print(my_rectangle.__dict__)
 
