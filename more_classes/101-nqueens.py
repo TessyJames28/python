@@ -16,31 +16,37 @@ def nqueens(arg):
     #     print("N must be at least 4")
     #     exit(1)
 
-    jump = 1
-    cols = []
-    
+    jump = 2    
 
     for row in range(arg):
         rows = []
-        print(f"first jump: {jump}")
+        val = 0
         for col in range(1, arg - 1):
             if row == 0:
                 rows.append([row, col])
             else:
-                if (col + jump) >= (arg - 1):
-                    new_jump = (col + jump) % (arg - 1)
-                    print(jump)
-                    rows.append([row, new_jump])
+                if col == 1:
+                    val = row + jump
+                    if val > arg:
+                        val = (val - arg) - 1
+                        rows.append([row, val])
+                    else:
+                        rows.append([row, val])
                 else:
-                    rows.append([row, col + jump])
-            cols.append(rows)
-        if row == 0:
-            jump += 2
+                    val += jump
+                    if val > arg:
+                        val = (val - arg) - 1
+                        rows.append([row, val])
+                    else:
+                        rows.append([row, val])
+            
+        if row >= 1:
+            jump += 1
+        print(rows)
         
-    return cols
 
 
-print(nqueens(4))
+nqueens(6)
 
 
 def transpose(matrix):
