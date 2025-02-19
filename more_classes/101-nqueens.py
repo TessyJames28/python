@@ -4,22 +4,22 @@ import sys
 # The N queens puzzle is the challenge of placing N non-attacking queens on an N×N chessboard.
 # Write a program that solves the N queens problem.
 # Usage: nqueens N
-def nqueens(arg):
-    # num_args = len(arg)
-    # if num_args > 2:
-    #     print("Usage: nqueens N")
-    #     exit(1)
-    # elif not isinstance(num_args[1], int):
-    #     print("N must be a number")
-    #     exit(1)
-    # elif num_args[1] < 4:
-    #     print("N must be at least 4")
-    #     exit(1)
+def nqueens():
+    if len(sys.argv) > 2:
+        print("Usage: nqueens N")
+        exit(1)
+    try:
+        arg = int(sys.argv[1])
+    except ValueError:
+        print("N must be a number")
+        exit(1)
+        
+    if arg < 4:
+        print("N must be at least 4")
+        exit(1)
 
     jump = 2  
     cols = []
-    column = [] 
-    matrix = [] 
 
     for row in range(arg):
         rows = []
@@ -66,7 +66,7 @@ def transpose(matrix):
     return transpose
 
 
-matrix = nqueens(4)
+matrix = nqueens()
 # result = transpose(matrix)
 # print(format_output(result))
 result = transpose(matrix)
