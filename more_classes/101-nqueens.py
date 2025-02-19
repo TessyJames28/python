@@ -18,51 +18,58 @@ def nqueens(arg):
 
     jump = 2  
     cols = []
-    column = []  
+    column = [] 
+    matrix = [] 
 
     for row in range(arg):
         rows = []
         val = 0
         for col in range(1, arg - 1):
             if row == 0:
-                rows.append(f"{[row, col]}")
+                rows.append([row, col])
             else:
                 if col == 1:
                     val = row + jump
                     if val > arg:
                         val = (val - arg) - 1
-                        rows.append(f"{[row, val]}")
+                        rows.append([row, val])
                     else:
-                        rows.append(f"{[row, val]}")
+                        rows.append([row, val])
                 else:
                     val += jump
                     if val > arg:
                         val = (val - arg) - 1
-                        rows.append(f"{[row, val]}")
+                        rows.append([row, val])
                     else:
-                        rows.append(f"{[row, val]}")
+                        rows.append([row, val])
+        cols.append(rows) # Append to a temporary list
         
         #Handle the jump
         if row >= 1:
             jump += 1
-        column.append(rows) # Append to a temporary list
+        
+    return cols
+   
 
-    # Format the out
-    for lst in column:
-        formated_row = ", ".join(f"{pos}" for pos in lst)
-        cols.append(f"[{formated_row}]")
-        
-        
-    return "\n".join(cols)
-        
-
-# nqueens(6)
 
 # Handle the transposing of the list
 def transpose(matrix):
-    return[[row[i] for row in matrix] for i in range(len(matrix[0]))]
+    # Fyunction to transpose the matrix for nqueens calculation
+    transpose = []
+    cols = len(matrix[0])
+    rows = len(matrix)
+    for col in range(cols):
+        new_row = []
+        for row in range(rows):
+            new_row.append(matrix[row][col])
+        transpose.append(new_row)
+    return transpose
 
 
-matrix = nqueens(6)
-print(transpose(matrix))
+matrix = nqueens(4)
+# result = transpose(matrix)
+# print(format_output(result))
+result = transpose(matrix)
+for row in result:
+    print(row)
         
