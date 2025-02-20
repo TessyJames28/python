@@ -67,8 +67,6 @@ def transpose(matrix):
 
 
 matrix = nqueens()
-# result = transpose(matrix)
-# print(format_output(result))
 result = transpose(matrix)
 for row in result:
     print(row)
