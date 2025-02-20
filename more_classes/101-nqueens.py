@@ -69,5 +69,4 @@ def transpose(matrix):
 matrix = nqueens()
 result = transpose(matrix)
 for row in result:
-    print(row)
-        
+    print(row)      
