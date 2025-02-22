@@ -1,0 +1,56 @@
+# Test file for 2-matrix_divided.py
+
+# Check that module exists
+>>> add_integer = __import__("2-matrix_divided").matrix_divided
+
+# check for docstring
+>>> d = __import__("2-matrix_divided").__doc__
+>>> len(d) > 1
+True
+
+# check for function docstring
+>>> divide_matrix = __import__("2-matrix_divided").matrix_divided
+>>> len(divide_matrix.__doc__) > 1
+True
+
+# Handle matrix division
+>>> matrix = [[1,2,3], [4,5,6]]
+>>> divide_matrix(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+# check that result is rounded to 2 decimal places
+>>> matrix = [[1,2,3], [4,5,6]]
+>>> result = divide_matrix(matrix, 3)
+>>> incorrect_result = [[0.333, 0.677, 1.00], [1.333, 1.677, 2.00]]
+>>> result != incorrect_result
+True
+
+# Check that a new matrix is returned
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+# Check that matrix are int or float
+>>> matrix = [[1, "2", 3], [4, 5, 6]]
+>>> divide_matrix(matrix, 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+# Check that div is a number
+>>> divide_matrix(matrix, "3")
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+# Check that division by zero
+>>> divide_matrix(matrix, 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+# Check that matrix is a list of lists
+>>> matrix = [1,2,3,4,5,6]
+>>> divide_matrix(matrix, 3)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
