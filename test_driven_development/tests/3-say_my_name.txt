@@ -1,0 +1,33 @@
+# Test cases for 3-say_my_name.py
+
+# Check that module exists
+>>> name = __import__('3-say_my_name').say_my_name
+
+# Check for docstring
+>>> d = __import__("3-say_my_name").__doc__
+>>> len(d) > 1
+True
+
+# Check for function documentation
+>>> len(name.__doc__) > 1
+True
+
+# Print complete name
+>>> name("Jane", "Doe")
+My name is Jane Doe
+
+# Assign one param
+>>> name("James")
+My name is James 
+
+# Test for int with first_name
+>>> name(5, "Doe")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+# Test for int with last_name
+>>> name("White", 34)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
