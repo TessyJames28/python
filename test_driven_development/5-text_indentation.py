@@ -1,23 +1,26 @@
 #!/usr/bin/python3
 
-# Write a function that prints a text with 2 new lines after each of these characters: ., ? and :
+"""Write a function that prints a text with 2 new lines after each of these characters: ., ? and :"""
 
 def text_indentation(text):
     """Function that prints new line based on specified characters"""
-    chars = [".", ":", "?"]
-    new_text = " ".join(text.split())
-    for char in chars:
-        new_text = new_text.replace(f"{char} ", char)
+    try:
+        chars = [".", ":", "?"]
+        new_text = " ".join(text.split())
+        for char in chars:
+            new_text = new_text.replace(f"{char} ", char)
 
-    if not isinstance(text, str):
+        if not isinstance(text, str):
+            raise TypeError("text must be a string")
+        else:
+            for chr in new_text.strip():
+                if chr == "." or chr == ":" or chr == "?":
+                    new_val = "".join(chr.strip())
+                    print(new_val + "\n")
+                    continue
+                print(chr, end="")
+    except Exception:
         raise TypeError("text must be a string")
-    else:
-        for chr in new_text.strip():
-            if chr == "." or chr == ":" or chr == "?":
-                new_val = "".join(chr.strip())
-                print(new_val + "\n")
-                continue
-            print(chr, end="")
 
 
 if __name__ == "__main__":
