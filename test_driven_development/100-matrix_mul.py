@@ -64,7 +64,8 @@ def matrix_mul(m_a, m_b):
             pass
         return matrix
 
+if __name__ == "__main__":
+    print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    print(matrix_mul([[1, 2], [3, 4]], [[1,2]]))
 
-print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
-print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
-print(matrix_mul([[1, 2], [3, 4]], [[1,2]]))
