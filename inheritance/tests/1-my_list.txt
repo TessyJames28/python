@@ -1,0 +1,27 @@
+# Interactive test cases for 1-my_list.py
+
+# Check that module exits
+>>> MyList = __import__('1-my_list').MyList
+
+# Check for docstring
+>>> doc = __import__('1-my_list').__doc__
+>>> len(doc) > 1
+True
+
+# Check for class documentation
+>>> len(MyList.__doc__) > 1
+True
+
+# Check that data is appended
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(5)
+>>> my_list.append(3)
+>>> my_list.append(10)
+>>> my_list.append(0)
+>>> print(my_list)
+[1, 5, 3, 10, 0]
+
+# Check that data is sorted
+>>> my_list.print_sorted()
+[0, 1, 3, 5, 10]
