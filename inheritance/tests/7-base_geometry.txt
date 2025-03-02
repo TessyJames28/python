@@ -28,4 +28,23 @@ True
 ...     print("[{}] {}".format(e.__class__.__name__, e))
 [Exception] area() is not implemented
 
-# Check that 
+# Check that integer_validator() raise a TypeError for non int
+>>> try:
+...     bg.integer_validator("place", "Florida")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] place must be an integer
+
+# Check that integer_validator() raises ValueError for int == 0
+>>> try:
+...     bg.integer_validator("amount", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] amount must be greater than 0
+
+# Check that integer_validator raise ValueError for negative value
+>>> try:
+...     bg.integer_validator("temperature", -42)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] temperature must be greater than 0
