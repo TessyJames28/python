@@ -1,0 +1,31 @@
+# Interactive test cases for 7-base_geometry.py
+
+# Check that module exists
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Check for docstring
+>>> doc = __import__('7-base_geometry').__doc__
+>>> len(doc) > 1
+True
+
+# Check for class documentation
+>>> len(BaseGeometry.__doc__) > 1
+True
+
+# Check for area() method docstring
+>>> len(BaseGeometry.area.__doc__) > 1
+True
+
+# Check for integer_validator() documentation
+>>> len(BaseGeometry.integer_validator.__doc__) > 1
+True
+
+# Check that area() raises Exeception
+>>> bg = BaseGeometry()
+>>> try:
+...     print(bg.area())
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[Exception] area() is not implemented
+
+# Check that 
