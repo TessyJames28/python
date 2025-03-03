@@ -5,6 +5,9 @@ BaseGeometry = __import__("7-base_geometry").BaseGeometry
 """A class Rectangle"""
 
 class Rectangle(BaseGeometry):
+    """Rectangle inherits from BaseGeometry and use interger_validator 
+    to validate height and width
+    """
     def __init__(self, width, height):
         BaseGeometry.__init__(self)
         
