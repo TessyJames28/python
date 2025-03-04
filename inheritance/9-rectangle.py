@@ -34,8 +34,10 @@ class Rectangle(BaseGeometry):
         """Print the string representation"""
         return f"[Rectangle] {self.__width}/{self.__height}"
 
-# Input data
-r = Rectangle(3, 5)
 
-print(r)
-print(r.area())
+if __name__ == "__main__":
+    # Input data
+    r = Rectangle(3, 5)
+
+    print(r)
+    print(r.area())
