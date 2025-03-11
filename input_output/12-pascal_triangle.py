@@ -16,18 +16,21 @@ def pascal_triangle(n):
         for i in range(val + 1):
             if i == 0:
                 val_list.append(1)
-            elif i == val:
-                val_list.append(1)
+            # elif val + 1 > 1 and i == val:
+            #     val_list.append(1)
             else:
-                for index, num in enumerate(prev_list):
-                    if index != len(prev_list):
-                        result = num + (num + 1)
+                for num in range(len(prev_list)):
+                    if num != len(prev_list) - 1:
+                        result = prev_list[num] + prev_list[num + 1]   
                         val_list.append(result)
-            print(val_list)
-            # triangle.append(val_list)
-            prev_list = val_list
+                    elif num == len(prev_list) - 1:
+                        val_list.append(1)
+                break
+    
+        triangle.append(val_list)
+        prev_list = val_list
 
-    # print(val_list)
+    return triangle
 
 
 # def print_triangle(triangle):
@@ -39,4 +42,4 @@ def pascal_triangle(n):
 
 
 if __name__ == "__main__":
-    pascal_triangle(5)
+    print(pascal_triangle(5))
