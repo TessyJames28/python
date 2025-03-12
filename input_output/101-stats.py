@@ -14,22 +14,27 @@ status_codes = {
     "405": 0,
     "500": 0
 }
+
 file_size = 0
 counter = 0
 try:
     for line in sys.stdin:
+        line = line.strip()
         values = line.split()
-        if values[-2] in status_codes:
-            status_codes[values[-2]] += 1
-        file_size += values[-1]
+        status = values[-2]
+        size = values[-1]
+        
+        if status in status_codes:
+            status_codes[status] += 1
+        file_size += int(size)
         counter += 1
+
+        if counter % 10 == 0:
+            print(f"file size: {file_size}")
+            for key, val in status_codes.items():
+                print(f"{key}: {val}")
 except KeyboardInterrupt as e:
     print(f"file size: {file_size}")
     for key, val in status_codes.items():
         print(f"{key}: {val}")
     raise e
-
-if counter % 10 == 0:
-    print(f"file size: {file_size}")
-    for key, val in status_codes.items():
-        print(f"{key}: {val}")
