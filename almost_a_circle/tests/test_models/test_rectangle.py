@@ -71,4 +71,32 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError) as context:
             Rectangle(2, 10, "3")
         self.assertEqual(str(context.exception), "x must be an integer")
-        
+
+    def test_x_is_greater_than_or_equal_to_0(self):
+        """test for x is greater than or equal to 0"""
+        with self.assertRaises(ValueError) as context:
+            Rectangle(10, 2, -3)
+        self.assertEqual(str(context.exception), "x must be >= 0")
+
+    def test_y(self):
+        """test for y"""
+        r1 = Rectangle(10, 2)
+        self.assertEqual(r1.y, 0)
+
+        r2 = Rectangle(2, 10, 3, 4)
+        self.assertEqual(r2.y, 4)
+
+        r3 = Rectangle(10, 2, 0, 0, 12)
+        self.assertEqual(r3.y, 0)
+
+    def test_y_is_int(self):
+        """test for y is int"""
+        with self.assertRaises(TypeError) as context:
+            Rectangle(2, 10, 3, "4")
+        self.assertEqual(str(context.exception), "y must be an integer")
+
+    def test_y_is_greater_than_or_equal_to_0(self):
+        """test for y is greater than or equal to 0"""
+        with self.assertRaises(ValueError) as context:
+            Rectangle(10, 2, 3, -4)
+        self.assertEqual(str(context.exception), "y must be >= 0")
