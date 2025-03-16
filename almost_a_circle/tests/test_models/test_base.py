@@ -9,6 +9,11 @@ from models.rectangle import Rectangle
 class TestBase(unittest.TestCase):
     """Test cases for base.py"""
 
+    @classmethod
+    def setUp(cls):
+        """Reset the Base class counter to 0"""
+        Base._Base__nb_objects = 0
+
     def test_base(self):
         """test for the base"""
         b1 = Base()
