@@ -100,3 +100,17 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             Rectangle(10, 2, 3, -4)
         self.assertEqual(str(context.exception), "y must be >= 0")
+
+    def test_id(self):
+        """test for id"""
+        r1 = Rectangle(10, 2)
+        self.assertEqual(r1.id, 1)
+
+        r2 = Rectangle(2, 10)
+        self.assertEqual(r2.id, 2)
+
+        r3 = Rectangle(10, 2, 0, 0, 12)
+        self.assertEqual(r3.id, 12)
+
+        r4 = Rectangle(2, 10)
+        self.assertEqual(r2.id, 3)
