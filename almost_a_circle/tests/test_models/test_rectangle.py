@@ -9,6 +9,11 @@ from models.base import Base
 class TestRectangle(unittest.TestCase):
     """Test cases for rectangle.py"""
 
+    @classmethod
+    def setUp(cls):
+        """Reset the Base class counter to 0"""
+        Base._Base__nb_objects = 0
+
     def test_width(self):
         """test for width"""
         r1 = Rectangle(10, 2)
@@ -113,4 +118,4 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.id, 12)
 
         r4 = Rectangle(2, 10)
-        self.assertEqual(r2.id, 3)
+        self.assertEqual(r4.id, 3)
