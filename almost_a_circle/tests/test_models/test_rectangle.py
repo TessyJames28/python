@@ -160,3 +160,14 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = sys.__stdout__ # Reset stdout
 
         self.assertEqual(captured_output.getvalue(), expected_output)
+
+
+    def test_str_with_id(self):
+        """test for __str__ with id given"""
+        r1 = Rectangle(3, 9, 2, 1, 7)
+        self.assertEqual(str(r1), "[Rectangle] (7) 2/1 - 3/9")
+
+    def test_str_without_id(self):
+        """test for __str__ without id given"""
+        r2 = Rectangle(6, 8, 1)
+        self.assertEqual(str(r2), "[Rectangle] (1) 1/0 - 6/8")
