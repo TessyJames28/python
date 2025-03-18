@@ -4,6 +4,8 @@
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
+import sys
+import io
 
 
 class TestRectangle(unittest.TestCase):
@@ -130,3 +132,31 @@ class TestRectangle(unittest.TestCase):
 
         r3 = Rectangle(6, 6, 0, 0, 12)
         self.assertEqual(r3.area(), 36)
+
+
+    def test_display_4x4(self):
+        """test for display 4 x 4"""
+        expected_output = "####\n####\n####\n####\n"
+        r1 = Rectangle(4, 4)
+
+        # Capture the output
+        captured_output = io.StringIO()
+        sys.stdout = captured_output # Redirect stdout
+        r1.display()
+        sys.stdout = sys.__stdout__ # Reset stdout
+
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+
+    def test_display_3x5(self):
+        """test for display 4 x 4"""
+        expected_output = "###\n###\n###\n###\n###\n"
+        r1 = Rectangle(3, 5)
+
+        # Capture the output
+        captured_output = io.StringIO()
+        sys.stdout = captured_output # Redirect stdout
+        r1.display()
+        sys.stdout = sys.__stdout__ # Reset stdout
+
+        self.assertEqual(captured_output.getvalue(), expected_output)
