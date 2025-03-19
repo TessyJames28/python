@@ -94,6 +94,8 @@ class Rectangle(Base):
     def display(self):
         """print the rectangle with the character #
         """
+        for i in range(self.__y):
+            print()
         for i in range(self.__height):
             print("#" * self.__width)
 
