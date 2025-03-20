@@ -197,3 +197,27 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = sys.__stdout__ # Reset stdout
 
         self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_update_args(self):
+        """test for update method with *args"""
+        r1 = Rectangle(10, 10)
+        r1.update(89)
+        self.assertEqual(str(r1), "[Rectangle] (89) 0/0 - 10/10")
+
+    def test_update_args_with_complete_args(self):
+        """test for update method with *args"""
+        r1 = Rectangle(10, 10)
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_update_args_with_some_args(self):
+        """test for update method with *args"""
+        r1 = Rectangle(10, 10)
+        r1.update(89, 2)
+        self.assertEqual(str(r1), "[Rectangle] (89) 0/0 - 2/10")
+
+    def test_update_with_three_args(self):
+        """test for update method with three *args"""
+        r1 = Rectangle(10, 10)
+        r1.update(89, 2, 3)
+        self.assertEqual(str(r1), "[Rectangle] (89) 0/0 - 2/3")
