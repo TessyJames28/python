@@ -171,3 +171,29 @@ class TestRectangle(unittest.TestCase):
         """test for __str__ without id given"""
         r2 = Rectangle(6, 8, 1)
         self.assertEqual(str(r2), "[Rectangle] (1) 1/0 - 6/8")
+
+    def test_display_for_xy_4x4(self):
+        """test for display 4 x 4 taking account of x and y"""
+        expected_output = "\n\n\n\n####\n####\n####\n####\n"
+        r1 = Rectangle(4, 4, 3, 4)
+
+        # Capture the output
+        captured_output = io.StringIO()
+        sys.stdout = captured_output # Redirect stdout
+        r1.display()
+        sys.stdout = sys.__stdout__ # Reset stdout
+
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_display_for_xy_3x3(self):
+        """test for display 3 x 3 taking account of x and y"""
+        expected_output = "###\n###\n###\n"
+        r1 = Rectangle(3, 3, 3, 0)
+
+        # Capture the output
+        captured_output = io.StringIO()
+        sys.stdout = captured_output # Redirect stdout
+        r1.display()
+        sys.stdout = sys.__stdout__ # Reset stdout
+
+        self.assertEqual(captured_output.getvalue(), expected_output)
